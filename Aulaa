@@ -1,0 +1,64 @@
+
+Estrutura básica
+
+```kotlin
+fun main() {
+    println("Olá, Mundo!")
+}
+```
+
+Saída de dados
+
+```kotlin
+print("Texto")
+println("Texto")
+```
+
+Variáveis
+
+```kotlin
+val nome = "Ana"
+var idade = 20
+```
+
+Entrada de dados
+
+```kotlin
+val nome = readLine()
+val idade = readLine()!!.toInt()
+println("Olá, $nome! Você tem $idade anos.")
+```
+
+Condições (if)
+
+```kotlin
+if (idade <= 12) {
+    println("Criança")
+} else if (idade <= 18) {
+    println("Adolescente")
+} else {
+    println("Adulto")
+}
+```
+
+Função
+
+```kotlin
+fun classificarIdade(idade: Int): String {
+    return if (idade <= 12) "Criança"
+    else if (idade <= 18) "Adolescente"
+    else "Adulto"
+}
+```
+
+when com intervalos
+
+```kotlin
+fun recomendarFilmes(idade: Int): String {
+    return when (idade) {
+        in 0..12 -> "Infantis"
+        in 13..18 -> "Adolescentes"
+        else -> "Adultos"
+    }
+}
+
