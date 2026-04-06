@@ -1,48 +1,71 @@
 fun main() {
 
-    // Saída básica
+    // ===============================
+    // Olá, Mundo!
+    // ===============================
     println("Olá, Mundo!")
+    println("Bem-vindo ao Kotlin!")
 
-    // Entrada de dados
-    print("Digite seu nome: ")
+    // ===============================
+    // Conhecendo o Utilizador
+    // ===============================
+    print("Informe seu nome: ")
     val nome = readLine() ?: ""
 
-    print("Digite sua idade: ")
+    print("Informe sua idade: ")
     val idade = readLine()?.toIntOrNull() ?: 0
 
-    // Exibição
     println("Olá, $nome! Você tem $idade anos.")
 
-    // Uso do if
+    // ===============================
+    // Classificador de Idade (IF)
+    // ===============================
     if (idade <= 12) {
-        println("Classificação: Criança")
+        println("Você é uma criança.")
     } else if (idade <= 18) {
-        println("Classificação: Adolescente")
+        println("Você é um adolescente.")
     } else {
-        println("Classificação: Adulto")
+        println("Você é um adulto.")
     }
 
-    // Chamando função
-    val tipo = classificarIdade(idade)
-    println("Função classificarIdade: $tipo")
 
-    // Chamando função com when
-    val filmes = recomendarFilmes(idade)
-    println("Recomendação de filmes: $filmes")
+    // ===============================
+    // Função Classificadora
+    // ===============================
+    val resultadoClassificacao = classificarIdade(idade)
+    println("Função classificarIdade: $resultadoClassificacao")
+
+    // ===============================
+    // Recomendador de Filmes (WHEN)
+    // ===============================
+    val recomendacao = recomendarFilmes(idade)
+    println("Recomendação: $recomendacao")
 }
 
-// Função com if
+
+// ===================================
+// classificarIdade
+// (Desafio 4)
+// ===================================
 fun classificarIdade(idade: Int): String {
-    return if (idade <= 12) "Criança"
-    else if (idade <= 18) "Adolescente"
-    else "Adulto"
+    return if (idade <= 12) {
+        "Você é uma criança."
+    } else if (idade <= 18) {
+        "Você é um adolescente."
+    } else {
+        "Você é um adulto."
+    }
 }
 
-// Função com when
+
+// ===================================
+//  recomendarFilmes
+// (Desafio 5)
+// ===================================
 fun recomendarFilmes(idade: Int): String {
     return when (idade) {
-        in 0..12 -> "Infantis"
-        in 13..18 -> "Adolescentes"
-        else -> "Adultos"
+        in 0..12 -> "Recomendamos filmes infantis."
+        in 13..18 -> "Recomendamos filmes adolescentes."
+        else -> "Recomendamos filmes para adultos."
     }
 }
