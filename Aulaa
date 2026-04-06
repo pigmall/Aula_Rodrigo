@@ -1,59 +1,44 @@
-
-Estrutura básica
-
-```kotlin
 fun main() {
+
+    // Saída básica
     println("Olá, Mundo!")
+
+    // Entrada de dados
+    print("Digite seu nome: ")
+    val nome = readLine() ?: ""
+
+    print("Digite sua idade: ")
+    val idade = readLine()?.toIntOrNull() ?: 0
+
+    // Exibição
+    println("Olá, $nome! Você tem $idade anos.")
+
+    // Uso do if
+    if (idade <= 12) {
+        println("Classificação: Criança")
+    } else if (idade <= 18) {
+        println("Classificação: Adolescente")
+    } else {
+        println("Classificação: Adulto")
+    }
+
+    // Chamando função
+    val tipo = classificarIdade(idade)
+    println("Função classificarIdade: $tipo")
+
+    // Chamando função com when
+    val filmes = recomendarFilmes(idade)
+    println("Recomendação de filmes: $filmes")
 }
-```
 
-Saída de dados
-
-```kotlin
-print("Texto")
-println("Texto")
-```
-
-Variáveis
-
-```kotlin
-val nome = "Ana"
-var idade = 20
-```
-
-Entrada de dados
-
-```kotlin
-val nome = readLine()
-val idade = readLine()!!.toInt()
-println("Olá, $nome! Você tem $idade anos.")
-```
-
-Condições (if)
-
-```kotlin
-if (idade <= 12) {
-    println("Criança")
-} else if (idade <= 18) {
-    println("Adolescente")
-} else {
-    println("Adulto")
-}
-```
-
-Função
-
-```kotlin
+// Função com if
 fun classificarIdade(idade: Int): String {
     return if (idade <= 12) "Criança"
     else if (idade <= 18) "Adolescente"
     else "Adulto"
 }
-```
 
-when com intervalos
-
-```kotlin
+// Função com when
 fun recomendarFilmes(idade: Int): String {
     return when (idade) {
         in 0..12 -> "Infantis"
@@ -61,4 +46,3 @@ fun recomendarFilmes(idade: Int): String {
         else -> "Adultos"
     }
 }
-
